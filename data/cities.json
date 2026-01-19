@@ -25,18 +25,6 @@
       "id": "98443197"
     },
     {
-      "id": "0b43",
-      "cityName": "Surat",
-      "country": "India",
-      "emoji": "🇮🇳",
-      "date": "2024-03-10T03:51:19.760Z",
-      "notes": "Home",
-      "position": {
-        "lat": "21.212579790630603",
-        "lng": "72.84210205078126"
-      }
-    },
-    {
       "id": "0417",
       "cityName": "Bengaluru",
       "country": "India",
@@ -46,6 +34,30 @@
       "position": {
         "lat": "13.047372256948787",
         "lng": "77.60742187500001"
+      }
+    },
+    {
+      "id": "a87c",
+      "cityName": "Mouila",
+      "country": "Gabon",
+      "emoji": "🇬🇦",
+      "date": "2024-08-14T19:23:35.065Z",
+      "notes": "",
+      "position": {
+        "lat": "-1.3536652177689592",
+        "lng": "11.68210713518524"
+      }
+    },
+    {
+      "id": "67fe",
+      "cityName": "Washington",
+      "country": "USA",
+      "emoji": "🇺🇸",
+      "date": "2024-09-18T19:53:19.242Z",
+      "notes": "Wonderful trip",
+      "position": {
+        "lat": "38.839707613545144",
+        "lng": "-76.92077636718751"
       }
     }
   ]

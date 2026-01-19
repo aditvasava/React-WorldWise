@@ -1,0 +1,49 @@
+npm create vite@4
+React - Javascript
+
+npm install
+
+npm install eslint vite-plugin-eslint eslint-config-react-app --save-dev
+
+create file .eslintrc.json
+>>
+{
+    "extends": "react-app"
+}
+
+inside vite.config.json
+import eslint from "vite-plugin-eslint"
+add eslint() to plugins
+
+API Server
+
+npm i json-server
+add below line of code to the scripts object in package.json file
+"server": "json-server --watch data/cities.json --port 8000"
+"server": "json-server --watch data/cities.json --port 8000 --delay 500" [NOT WORKING]
+
+----------------------------------------------------------------------
+MAIN
+Start Backend json server and frontend vite
+npm run server
+npm run dev
+----------------------------------------------------------------------
+
+npm i react-router-dom
+
+CSS Types in react
+Inline CSS (Local)
+External CSS or Sass file (Global, cause problems)
+CSS Modules (Component) [One external file per component]
+Other CSS frameworks
+Tailwindcss
+Material UI
+Chakra UIM
+Mantine
+
+Both create react app and create vite comes pre-installed with css modules
+In order to use it, for eg in Product.jsx file
+create a file named Product.module.css
+import styles from "./Product.module.css"
+className = {styles.nav}
+Dont use element selector, instead give class names to the element in the jsx file and using that apply css in module.css file.

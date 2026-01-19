@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import styles from "./Homepage.module.css";
 import PageNav from "../components/PageNav";
+import { useAuth } from "../contexts/authcontext";
 
 export default function Homepage() {
+  const { isAuthenticated } = useAuth();
   return (
     <main className={styles.homepage}>
       <PageNav />
@@ -17,8 +19,9 @@ export default function Homepage() {
           of. Never forget your wonderful experiences, and show your friends how
           you have wandered the world.
         </h2>
+        {/* a href cannot be used, as it will reload the page, the Link component provided from react-router-dom is same as 'a' of html */}
         <Link to="/login" className="cta">
-          Start tracking now
+          {isAuthenticated ? "Continue Adding Trips..." : "Start tracking now"}
         </Link>
       </section>
     </main>

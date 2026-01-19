@@ -5,7 +5,6 @@ function CountryItem({ country }) {
     <li className={styles.countryItem}>
       <span>{country.emoji}</span>
       <span>{country.country}</span>
-      Country
     </li>
   );
 }

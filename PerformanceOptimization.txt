@@ -1,0 +1,32 @@
+Performance Optimization Tools
+
+1. Prevent wasted renders (A render that didn't produce any change in the DOM)
+useMemo
+useCallback
+passing elements as chidlren or regular prop
+
+2. Improve App Speed / Responsiveness
+useMemo
+useCallback
+useTransition
+
+3. Reduce Bundle size
+fewer 3rd-party packages
+code splitting and lazy loading
+
+Memoization
+Memoize components with memo
+Memoize objects with useMemo
+Memoize functions with useCallback
+
+To see the usecase of memo function, see the original App.js of atomic blog (Before the context was used)
+
+Bundling and Code Splitting
+Bundle - Code is stored on web server, whenever user wants to see website, the server will send a huge js file which will have all application code
+This is the js bundle that is required on the client side to see the application
+
+Bundle size - the size of the js code
+
+Code splitting - The entire app bundle is splitted into parts that can be downloaded over time. So the user doesn't need the entire app code to see the webpage
+this process is known as lazy loading
+usually the code is splitted at the page level see the app.js file for this implementation

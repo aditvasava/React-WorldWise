@@ -14,7 +14,8 @@ const formatDate = (date) =>
   }).format(new Date(date));
 
 function City() {
-  // TEMP DATA
+  // const x = useParams()
+  // console.log(x) => {id: '384348533'}
   const { id } = useParams();
   const { getCity, currentCity, isLoading } = useCities();
 
@@ -33,9 +34,15 @@ function City() {
 
   const { cityName, emoji, date, notes } = currentCity;
 
-  // const [searchParams, setSearchParams] = useSearchParams();
-  // const lat = searchParams.get("lat");
-  // const lng = searchParams.get("lng");
+  /*
+   localhost:3000/app/cities/34532?lat=23.3232&lng=43.2345
+   After the question mark. Similar to req.query of node js
+   const [searchParams, setSearchParams] = useSearchParams();
+   const lat = searchParams.get("lat");
+   const lng = searchParams.get("lng");
+   Updating the searchparams or query string is a global thing, all the components that are reading this or using this will get updated
+   Over here the use case is to click anywhere on the map and get the coordinates from the click, update query string and pass it to the form component.
+  */
   if (isLoading) return <Spinner />;
   return (
     <div className={styles.city}>

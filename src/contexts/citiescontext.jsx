@@ -31,14 +31,14 @@ function reducer(state, action) {
       return {
         ...state,
         isLoading: false,
-        cities: [...state.cities, action.payload],
+        cities: state.cities.filter((city) => city.id !== action.payload),
       };
 
     case "rejected":
       return {
         ...state,
         isLoading: false,
-        cities: state.cities.filter((city) => city.id !== action.payload),
+        error: action.payload,
       };
 
     default:
@@ -52,10 +52,11 @@ function CitiesProvider({ children }) {
     reducer,
     initialState
   );
-  // const [cities, setCities] = useState([]);
-  // const [isLoading, setIsLoading] = useState(false);
-  // const [currentCity, setCurrentCity] = useState({});
-
+  /*
+  const [cities, setCities] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [currentCity, setCurrentCity] = useState({});
+  */
   useEffect(function () {
     async function fetchCities() {
       dispatch({ type: "loading" });
@@ -73,6 +74,7 @@ function CitiesProvider({ children }) {
     fetchCities();
   }, []);
 
+  // Get City
   async function getCity(id) {
     dispatch({ type: "loading" });
     try {
@@ -87,9 +89,13 @@ function CitiesProvider({ children }) {
     }
   }
 
+  // Create City
   async function createCity(newCity) {
     dispatch({ type: "loading" });
     try {
+      // Only sending a post request will surely update the city in backend
+      // but to see those changes live, we have to update the cities array
+      // by sending the newly created city as the payload to cities/created dispatch method.
       const res = await fetch(`${BASE_URL}/cities`, {
         method: "POST",
         body: JSON.stringify(newCity),
@@ -105,10 +111,11 @@ function CitiesProvider({ children }) {
     }
   }
 
+  // Delete City
   async function deleteCity(id) {
     dispatch({ type: "loading" });
     try {
-      const res = await fetch(`${BASE_URL}/cities/${id}`, {
+      await fetch(`${BASE_URL}/cities/${id}`, {
         method: "DELETE",
       });
       dispatch({ type: "cities/deleted", payload: id });
@@ -136,10 +143,11 @@ function CitiesProvider({ children }) {
   );
 }
 
+// Custom Hook to read global variables
 function useCities() {
   const context = useContext(CitiesContext);
   if (context === undefined)
-    throw new Error("Some Error from citiescontext.jsx line 42");
+    throw new Error("Some Error from citiescontext.jsx");
   return context;
 }
 

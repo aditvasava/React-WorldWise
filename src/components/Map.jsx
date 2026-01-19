@@ -83,8 +83,11 @@ function ChangeCenter({ position }) {
   return null;
 }
 
-// This is no react syntax, its just the way it is from the leaflet library
-// This function is to open form whenever there is a click on the map.
+/* This is no react syntax, its just the way it is from the leaflet library
+   This function is to open form whenever there is a click on the map.
+  Programmatic Naigation - Move to a new URL without having the user to click on any link.
+  useNavigate provided from react router
+*/
 function DetectClick() {
   const navigate = useNavigate();
   useMapEvents({

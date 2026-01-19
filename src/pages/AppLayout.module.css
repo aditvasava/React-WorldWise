@@ -4,4 +4,5 @@
   overscroll-behavior-y: none;
   display: flex;
   position: relative;
+  background-color: rgb(225, 225, 225);
 }

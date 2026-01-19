@@ -111,6 +111,8 @@ function Form() {
       <div className={styles.row}>
         <label htmlFor="notes">Notes about your trip to {cityName}</label>
         <textarea
+          placeholder="Places that you went, people you met, and good stuff..."
+          rows={3}
           id="notes"
           onChange={(e) => setNotes(e.target.value)}
           value={notes}

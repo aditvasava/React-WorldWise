@@ -21,9 +21,12 @@
 }
 
 /* CSS Modules feature */
+/* To use the active class provided from the NavLink component of react-router-dom */
 .nav a:global(.active) {
   color: var(--color-brand--2);
 }
+
+/* :global(.test){} the .test class now is global and can be used anywhere in the app using .test classname */
 
 a.ctaLink:link,
 a.ctaLink:visited {
